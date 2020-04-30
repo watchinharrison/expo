@@ -365,6 +365,9 @@ void EXRegisterScopedModule(Class moduleClass, ...)
   NSString *localStorageDirectory = [fileSystemModule.documentDirectory stringByAppendingPathComponent:EX_UNVERSIONED(@"RCTAsyncLocalStorage")];
   [extraModules addObject:[[RCTAsyncLocalStorage alloc] initWithStorageDirectory:localStorageDirectory]];
 
+  if (params[@"devSupportModule"]) {
+    [extraModules addObject:params[@"devSupportModule"]];
+  }
   return extraModules;
 }
 

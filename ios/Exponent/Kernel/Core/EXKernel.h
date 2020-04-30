@@ -2,13 +2,14 @@
 
 #import <UIKit/UIKit.h>
 
+#import <EXDevSupport/EXDevSupportDelegateProtocol.h>
+
 #import "EXAppBrowserController.h"
 #import "EXKernelAppRegistry.h"
 #import "EXKernelServiceRegistry.h"
 #import "EXKernelUtil.h"
 #import "EXViewController.h"
 #import "EXPendingNotification.h"
-#import "EXDevMenuDelegateProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +22,7 @@ typedef NS_ENUM(NSInteger, EXKernelErrorCode) {
 // this key is set to YES when crashlytics sends a crash report.
 FOUNDATION_EXPORT NSString * const kEXKernelClearJSCacheUserDefaultsKey;
 
-@interface EXKernel : NSObject <EXViewControllerDelegate, EXDevMenuDelegateProtocol>
+@interface EXKernel : NSObject <EXViewControllerDelegate, EXDevSupportDelegateProtocol>
 
 @property (nonatomic, strong, readonly) EXKernelAppRegistry *appRegistry;
 @property (nonatomic, strong, readonly) EXKernelServiceRegistry *serviceRegistry;

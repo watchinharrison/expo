@@ -36,6 +36,9 @@ target 'Exponent' do
     }
   })
 
+  pod 'EXDevSupport',
+    :path => '../packages/expo-dev-support'
+
   # Unversioned React Native
   use_react_native! path: '../react-native-lab/react-native'
 

@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F3046516FCC10B5E0DDF67D709AD41B /* EXDevSupportInternalModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DDE7F464F06238B3BF6A0D070A295D8 /* EXDevSupportInternalModule.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		1F6C0D5DC1A7421D30EE637CF021459F /* EXDevMenuGestureRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = B6C112C616FB8D2C6BAA7F57EE11B6C3 /* EXDevMenuGestureRecognizer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		329B8A47B2E348B9E781F7D084EF04D6 /* EXDevSupportInternalModule.h in Headers */ = {isa = PBXBuildFile; fileRef = F89592034F994855B8EF0E65AB6A9F84 /* EXDevSupportInternalModule.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		332EE0286106024273E17E256B602AE8 /* EXDevSupportModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 87C70C9A071856E4DA03DDF2B3D4494D /* EXDevSupportModule.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4FB730CC23B9D28F62FEEE5D3C10B036 /* EXDevSupport-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B644FD7832A5B3BD815FD5D51075B24 /* EXDevSupport-dummy.m */; };
+		5ED2B833C952F39B46831CAED5B08706 /* EXDevSupportBridgeProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C8291356066A33ED6328587863C6CB6 /* EXDevSupportBridgeProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6DF28B387294BB8ECB4D240A22C3AD1F /* EXDevMenuApp.js in Resources */ = {isa = PBXBuildFile; fileRef = 090E0CAB12BE78AA17F3C06E5E8F5CF9 /* EXDevMenuApp.js */; };
+		7237CF7E674817A7B9E565C66C5CFEF6 /* EXDevSupportModule.m in Sources */ = {isa = PBXBuildFile; fileRef = ECBCB2799D40E3905801E7D091E8B8F1 /* EXDevSupportModule.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		804C69782CB882048F90A996ED59FD16 /* EXDevMenuWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B1C6CDA836205D194D2D440D2683F4F /* EXDevMenuWindow.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		84F8695AA3D5632C28F0F6D146FDA86C /* EXDevMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A57E4E82F552C221DFF1E3CC3112E20 /* EXDevMenuViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		85069811171BB8C231B1A8E1D9B5391C /* EXDevSupportMenuExtensionProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE2C6BD8FCCA391556915917A422898 /* EXDevSupportMenuExtensionProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		885DD75B0B2D41F816E29988BDF38325 /* EXDevSupportAppInstance.h in Headers */ = {isa = PBXBuildFile; fileRef = 139A53FFE9A7764977818779E2C9752A /* EXDevSupportAppInstance.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8A7021257CE1A80D0F5BDEA05F720ED6 /* EXDevMenuMotionInterceptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E686E8742D99A29410058C8793D4DA4 /* EXDevMenuMotionInterceptor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		95E9A7E48E41ACD58AFA61DA22F2C751 /* EXDevSupportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DE38D3C24FEC2E2EF5028458AE5917E /* EXDevSupportManager.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		96A7641092D8E3DB5A062D6521A8F33E /* EXDevSupportMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CCC38CEFE6BC2523273687262A4799 /* EXDevSupportMenuItem.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		97BF5648EBD96A56C41441384FCB5071 /* EXDevSupportManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D4EA4A82BA93D14166EB14EC99CD322D /* EXDevSupportManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9DE40DB2DC7C384796098A2672AC1341 /* EXDevSupportAppInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BF1C174DFD61F27313A59A0B3F91DE /* EXDevSupportAppInstance.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A81087A26BC357F033061B8294285CEC /* EXDevMenuGestureInterceptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 6CA8DDAA1193D9C7A8D35010C0DC3F31 /* EXDevMenuGestureInterceptor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B697593FEF022A420B67FBBEC708A71E /* EXDevSupportDelegateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 42DC7FEAFF7ED19C2183537134345855 /* EXDevSupportDelegateProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C00D50A0C98D7F3FF868CA45F22A7449 /* EXDevMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 249498260CF4A4318B82978E7DC2F7B7 /* EXDevMenuViewController.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		C64C247FA1BC9A7FBCF8DA98507CF633 /* EXDevMenuGestureInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FF886AB4FB693D3096C2E6A40BF53D /* EXDevMenuGestureInterceptor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		ED6C9FE428BBE2C4636ED0FF546676CF /* EXDevSupportMenuItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CA4E453C2599EEBE85BD01A99A06EFE /* EXDevSupportMenuItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ED91439EE6CBC673D6865FEA2ABFB307 /* EXDevMenuWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = C9619728FE55CD3EA8AA9BB94DB498E8 /* EXDevMenuWindow.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F18824DF0A4E84103F4EA83992936C4A /* EXDevMenuMotionInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = B53D38885CDA68C471B790721D0DC1C8 /* EXDevMenuMotionInterceptor.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		F452D2F2358AA1F5FB24F3F7D8A9331C /* EXDevMenuGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E41708E8063C84EDA53E347990DF375D /* EXDevMenuGestureRecognizer.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		300702A2CE0811F8F672F9D4C604FAD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 98BCF084D25147C91A144D54EE3CA865 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07344F71A70826148EC17C85FF5332B9;
+			remoteInfo = "EXDevSupport-EXDevSupport";
+		};
+		94A3916B77C94AF6DF26ABF3D5A42A66 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24C3258A6E0823A28B14E90F708D4080 /* React.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 94DA87F24FB4B93E5D08FE961D5E5A3E;
+			remoteInfo = React;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		090E0CAB12BE78AA17F3C06E5E8F5CF9 /* EXDevMenuApp.js */ = {isa = PBXFileReference; includeInIndex = 1; name = EXDevMenuApp.js; path = ios/Resources/EXDevMenuApp.js; sourceTree = "<group>"; };
+		0B1C6CDA836205D194D2D440D2683F4F /* EXDevMenuWindow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXDevMenuWindow.m; path = ios/EXDevMenuWindow.m; sourceTree = "<group>"; };
+		0E12D57193C3FC9B14CD35F6E413D8EA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0E686E8742D99A29410058C8793D4DA4 /* EXDevMenuMotionInterceptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevMenuMotionInterceptor.h; sourceTree = "<group>"; };
+		139A53FFE9A7764977818779E2C9752A /* EXDevSupportAppInstance.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXDevSupportAppInstance.h; path = ios/EXDevSupportAppInstance.h; sourceTree = "<group>"; };
+		1A57E4E82F552C221DFF1E3CC3112E20 /* EXDevMenuViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXDevMenuViewController.h; path = ios/EXDevMenuViewController.h; sourceTree = "<group>"; };
+		1DDE7F464F06238B3BF6A0D070A295D8 /* EXDevSupportInternalModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EXDevSupportInternalModule.m; sourceTree = "<group>"; };
+		249498260CF4A4318B82978E7DC2F7B7 /* EXDevMenuViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXDevMenuViewController.m; path = ios/EXDevMenuViewController.m; sourceTree = "<group>"; };
+		24C3258A6E0823A28B14E90F708D4080 /* React */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React; path = React.xcodeproj; sourceTree = "<group>"; };
+		2DE38D3C24FEC2E2EF5028458AE5917E /* EXDevSupportManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXDevSupportManager.m; path = ios/EXDevSupportManager.m; sourceTree = "<group>"; };
+		3C8291356066A33ED6328587863C6CB6 /* EXDevSupportBridgeProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevSupportBridgeProtocol.h; sourceTree = "<group>"; };
+		42DC7FEAFF7ED19C2183537134345855 /* EXDevSupportDelegateProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevSupportDelegateProtocol.h; sourceTree = "<group>"; };
+		50CCC38CEFE6BC2523273687262A4799 /* EXDevSupportMenuItem.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EXDevSupportMenuItem.m; sourceTree = "<group>"; };
+		545369FE959F99CBBFAACF49B9BFCFD3 /* EXDevSupport.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = EXDevSupport.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		5FE2C6BD8FCCA391556915917A422898 /* EXDevSupportMenuExtensionProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevSupportMenuExtensionProtocol.h; sourceTree = "<group>"; };
+		6594D2A8A2B7AFA2FB990ED77B617B9C /* EXDevSupport.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = EXDevSupport.xcconfig; sourceTree = "<group>"; };
+		65FF886AB4FB693D3096C2E6A40BF53D /* EXDevMenuGestureInterceptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EXDevMenuGestureInterceptor.m; sourceTree = "<group>"; };
+		6CA8DDAA1193D9C7A8D35010C0DC3F31 /* EXDevMenuGestureInterceptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevMenuGestureInterceptor.h; sourceTree = "<group>"; };
+		87C70C9A071856E4DA03DDF2B3D4494D /* EXDevSupportModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevSupportModule.h; sourceTree = "<group>"; };
+		8B0EA3667C24C7F878B99BC121C52E25 /* libEXDevSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libEXDevSupport.a; path = libEXDevSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B644FD7832A5B3BD815FD5D51075B24 /* EXDevSupport-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "EXDevSupport-dummy.m"; sourceTree = "<group>"; };
+		9CA4E453C2599EEBE85BD01A99A06EFE /* EXDevSupportMenuItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevSupportMenuItem.h; sourceTree = "<group>"; };
+		A534C4484FD9B6BD3AA913D5D9526FB0 /* EXDevSupport.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = EXDevSupport.bundle; path = "EXDevSupport-EXDevSupport.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE5883C3F42AD0108765635B615205EB /* EXDevSupport-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "EXDevSupport-prefix.pch"; sourceTree = "<group>"; };
+		B1BF1C174DFD61F27313A59A0B3F91DE /* EXDevSupportAppInstance.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXDevSupportAppInstance.m; path = ios/EXDevSupportAppInstance.m; sourceTree = "<group>"; };
+		B53D38885CDA68C471B790721D0DC1C8 /* EXDevMenuMotionInterceptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EXDevMenuMotionInterceptor.m; sourceTree = "<group>"; };
+		B6C112C616FB8D2C6BAA7F57EE11B6C3 /* EXDevMenuGestureRecognizer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXDevMenuGestureRecognizer.h; path = ios/EXDevMenuGestureRecognizer.h; sourceTree = "<group>"; };
+		BD29AA849CE38DD9E6B6257C4E1E76AB /* ResourceBundle-EXDevSupport-EXDevSupport-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-EXDevSupport-EXDevSupport-Info.plist"; sourceTree = "<group>"; };
+		C9619728FE55CD3EA8AA9BB94DB498E8 /* EXDevMenuWindow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXDevMenuWindow.h; path = ios/EXDevMenuWindow.h; sourceTree = "<group>"; };
+		D4EA4A82BA93D14166EB14EC99CD322D /* EXDevSupportManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = EXDevSupportManager.h; path = ios/EXDevSupportManager.h; sourceTree = "<group>"; };
+		E41708E8063C84EDA53E347990DF375D /* EXDevMenuGestureRecognizer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXDevMenuGestureRecognizer.m; path = ios/EXDevMenuGestureRecognizer.m; sourceTree = "<group>"; };
+		ECBCB2799D40E3905801E7D091E8B8F1 /* EXDevSupportModule.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = EXDevSupportModule.m; sourceTree = "<group>"; };
+		F89592034F994855B8EF0E65AB6A9F84 /* EXDevSupportInternalModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EXDevSupportInternalModule.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		520AC50F817244FA663FF8324986581E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0716A5F317AEC2844402AFCC4A1C06C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		06F2FA8CD298207E723416402EB37954 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A534C4484FD9B6BD3AA913D5D9526FB0 /* EXDevSupport.bundle */,
+				8B0EA3667C24C7F878B99BC121C52E25 /* libEXDevSupport.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		11B85D1A1C38D96EEAD04087F1DC7334 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F89592034F994855B8EF0E65AB6A9F84 /* EXDevSupportInternalModule.h */,
+				1DDE7F464F06238B3BF6A0D070A295D8 /* EXDevSupportInternalModule.m */,
+				87C70C9A071856E4DA03DDF2B3D4494D /* EXDevSupportModule.h */,
+				ECBCB2799D40E3905801E7D091E8B8F1 /* EXDevSupportModule.m */,
+			);
+			name = Modules;
+			path = ios/Modules;
+			sourceTree = "<group>";
+		};
+		16598DF09AE659F82B7F29ABB40B39C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BC323EF11E3EA7FB6B73E2F164CDD36 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				3C8291356066A33ED6328587863C6CB6 /* EXDevSupportBridgeProtocol.h */,
+				42DC7FEAFF7ED19C2183537134345855 /* EXDevSupportDelegateProtocol.h */,
+				5FE2C6BD8FCCA391556915917A422898 /* EXDevSupportMenuExtensionProtocol.h */,
+			);
+			name = Protocols;
+			path = ios/Protocols;
+			sourceTree = "<group>";
+		};
+		1D9A7AB516829A498F3B42817ECA4C7F /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6594D2A8A2B7AFA2FB990ED77B617B9C /* EXDevSupport.xcconfig */,
+				9B644FD7832A5B3BD815FD5D51075B24 /* EXDevSupport-dummy.m */,
+				AE5883C3F42AD0108765635B615205EB /* EXDevSupport-prefix.pch */,
+				BD29AA849CE38DD9E6B6257C4E1E76AB /* ResourceBundle-EXDevSupport-EXDevSupport-Info.plist */,
+			);
+			name = "Support Files";
+			path = "../../ios/Pods/Target Support Files/EXDevSupport";
+			sourceTree = "<group>";
+		};
+		5E2277E0454CBEF31FA25ABB219E3A29 /* MenuItems */ = {
+			isa = PBXGroup;
+			children = (
+				9CA4E453C2599EEBE85BD01A99A06EFE /* EXDevSupportMenuItem.h */,
+				50CCC38CEFE6BC2523273687262A4799 /* EXDevSupportMenuItem.m */,
+			);
+			name = MenuItems;
+			path = ios/MenuItems;
+			sourceTree = "<group>";
+		};
+		6778E01CACB6F7F3DCCAC39B2CE9AFF4 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				24C3258A6E0823A28B14E90F708D4080 /* React */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		8973FCAE85735A45062E306E53B68C47 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				090E0CAB12BE78AA17F3C06E5E8F5CF9 /* EXDevMenuApp.js */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CEA46BD9330DB4ECA6CF5EFBC7F9DA7E /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				545369FE959F99CBBFAACF49B9BFCFD3 /* EXDevSupport.podspec */,
+				0E12D57193C3FC9B14CD35F6E413D8EA /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		D2F0AFF977152FA2794E5631D569B6EC /* EXDevSupport */ = {
+			isa = PBXGroup;
+			children = (
+				B6C112C616FB8D2C6BAA7F57EE11B6C3 /* EXDevMenuGestureRecognizer.h */,
+				E41708E8063C84EDA53E347990DF375D /* EXDevMenuGestureRecognizer.m */,
+				1A57E4E82F552C221DFF1E3CC3112E20 /* EXDevMenuViewController.h */,
+				249498260CF4A4318B82978E7DC2F7B7 /* EXDevMenuViewController.m */,
+				C9619728FE55CD3EA8AA9BB94DB498E8 /* EXDevMenuWindow.h */,
+				0B1C6CDA836205D194D2D440D2683F4F /* EXDevMenuWindow.m */,
+				139A53FFE9A7764977818779E2C9752A /* EXDevSupportAppInstance.h */,
+				B1BF1C174DFD61F27313A59A0B3F91DE /* EXDevSupportAppInstance.m */,
+				D4EA4A82BA93D14166EB14EC99CD322D /* EXDevSupportManager.h */,
+				2DE38D3C24FEC2E2EF5028458AE5917E /* EXDevSupportManager.m */,
+				E3CAA7CF7B59EF6C828A88E7C3927D5C /* Interceptors */,
+				5E2277E0454CBEF31FA25ABB219E3A29 /* MenuItems */,
+				11B85D1A1C38D96EEAD04087F1DC7334 /* Modules */,
+				CEA46BD9330DB4ECA6CF5EFBC7F9DA7E /* Pod */,
+				1BC323EF11E3EA7FB6B73E2F164CDD36 /* Protocols */,
+				8973FCAE85735A45062E306E53B68C47 /* Resources */,
+				1D9A7AB516829A498F3B42817ECA4C7F /* Support Files */,
+			);
+			name = EXDevSupport;
+			path = "../../packages/expo-dev-support";
+			sourceTree = "<group>";
+		};
+		E3CAA7CF7B59EF6C828A88E7C3927D5C /* Interceptors */ = {
+			isa = PBXGroup;
+			children = (
+				6CA8DDAA1193D9C7A8D35010C0DC3F31 /* EXDevMenuGestureInterceptor.h */,
+				65FF886AB4FB693D3096C2E6A40BF53D /* EXDevMenuGestureInterceptor.m */,
+				0E686E8742D99A29410058C8793D4DA4 /* EXDevMenuMotionInterceptor.h */,
+				B53D38885CDA68C471B790721D0DC1C8 /* EXDevMenuMotionInterceptor.m */,
+			);
+			name = Interceptors;
+			path = ios/Interceptors;
+			sourceTree = "<group>";
+		};
+		FFE18C18C842E29E6A4B726E178E07EE = {
+			isa = PBXGroup;
+			children = (
+				6778E01CACB6F7F3DCCAC39B2CE9AFF4 /* Dependencies */,
+				D2F0AFF977152FA2794E5631D569B6EC /* EXDevSupport */,
+				16598DF09AE659F82B7F29ABB40B39C0 /* Frameworks */,
+				06F2FA8CD298207E723416402EB37954 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E28FB7DFA08534E0F77D9249896AD83E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A81087A26BC357F033061B8294285CEC /* EXDevMenuGestureInterceptor.h in Headers */,
+				1F6C0D5DC1A7421D30EE637CF021459F /* EXDevMenuGestureRecognizer.h in Headers */,
+				8A7021257CE1A80D0F5BDEA05F720ED6 /* EXDevMenuMotionInterceptor.h in Headers */,
+				84F8695AA3D5632C28F0F6D146FDA86C /* EXDevMenuViewController.h in Headers */,
+				ED91439EE6CBC673D6865FEA2ABFB307 /* EXDevMenuWindow.h in Headers */,
+				885DD75B0B2D41F816E29988BDF38325 /* EXDevSupportAppInstance.h in Headers */,
+				5ED2B833C952F39B46831CAED5B08706 /* EXDevSupportBridgeProtocol.h in Headers */,
+				B697593FEF022A420B67FBBEC708A71E /* EXDevSupportDelegateProtocol.h in Headers */,
+				329B8A47B2E348B9E781F7D084EF04D6 /* EXDevSupportInternalModule.h in Headers */,
+				97BF5648EBD96A56C41441384FCB5071 /* EXDevSupportManager.h in Headers */,
+				85069811171BB8C231B1A8E1D9B5391C /* EXDevSupportMenuExtensionProtocol.h in Headers */,
+				ED6C9FE428BBE2C4636ED0FF546676CF /* EXDevSupportMenuItem.h in Headers */,
+				332EE0286106024273E17E256B602AE8 /* EXDevSupportModule.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		07344F71A70826148EC17C85FF5332B9 /* EXDevSupport-EXDevSupport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AF6DC8F0E32967FD47A7345BC14F7A0 /* Build configuration list for PBXNativeTarget "EXDevSupport-EXDevSupport" */;
+			buildPhases = (
+				250D83052A38261FE3C029676B33699F /* Sources */,
+				D0716A5F317AEC2844402AFCC4A1C06C /* Frameworks */,
+				07BB00283C3B17DB41C2569CD7EA5D5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "EXDevSupport-EXDevSupport";
+			productName = "EXDevSupport-EXDevSupport";
+			productReference = A534C4484FD9B6BD3AA913D5D9526FB0 /* EXDevSupport.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+		84AED2F049BEC79BE5BDFAD98E14E003 /* EXDevSupport */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7DC371007B9CAE1A815A793DE4289018 /* Build configuration list for PBXNativeTarget "EXDevSupport" */;
+			buildPhases = (
+				E28FB7DFA08534E0F77D9249896AD83E /* Headers */,
+				1D10E60DE8D327CFE3B974B161EE3D22 /* Sources */,
+				520AC50F817244FA663FF8324986581E /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D6AC89E9E2C24C4C769BDD0208C01FAC /* PBXTargetDependency */,
+				FBA94BE33BE7FDAEFEF1651538BD72E7 /* PBXTargetDependency */,
+			);
+			name = EXDevSupport;
+			productName = EXDevSupport;
+			productReference = 8B0EA3667C24C7F878B99BC121C52E25 /* libEXDevSupport.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		98BCF084D25147C91A144D54EE3CA865 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = E94F7B08563BC3A9F46720E02AC158EA /* Build configuration list for PBXProject "EXDevSupport" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FFE18C18C842E29E6A4B726E178E07EE;
+			productRefGroup = 06F2FA8CD298207E723416402EB37954 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProjectRef = 24C3258A6E0823A28B14E90F708D4080 /* React */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				84AED2F049BEC79BE5BDFAD98E14E003 /* EXDevSupport */,
+				07344F71A70826148EC17C85FF5332B9 /* EXDevSupport-EXDevSupport */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07BB00283C3B17DB41C2569CD7EA5D5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6DF28B387294BB8ECB4D240A22C3AD1F /* EXDevMenuApp.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D10E60DE8D327CFE3B974B161EE3D22 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C64C247FA1BC9A7FBCF8DA98507CF633 /* EXDevMenuGestureInterceptor.m in Sources */,
+				F452D2F2358AA1F5FB24F3F7D8A9331C /* EXDevMenuGestureRecognizer.m in Sources */,
+				F18824DF0A4E84103F4EA83992936C4A /* EXDevMenuMotionInterceptor.m in Sources */,
+				C00D50A0C98D7F3FF868CA45F22A7449 /* EXDevMenuViewController.m in Sources */,
+				804C69782CB882048F90A996ED59FD16 /* EXDevMenuWindow.m in Sources */,
+				4FB730CC23B9D28F62FEEE5D3C10B036 /* EXDevSupport-dummy.m in Sources */,
+				9DE40DB2DC7C384796098A2672AC1341 /* EXDevSupportAppInstance.m in Sources */,
+				0F3046516FCC10B5E0DDF67D709AD41B /* EXDevSupportInternalModule.m in Sources */,
+				95E9A7E48E41ACD58AFA61DA22F2C751 /* EXDevSupportManager.m in Sources */,
+				96A7641092D8E3DB5A062D6521A8F33E /* EXDevSupportMenuItem.m in Sources */,
+				7237CF7E674817A7B9E565C66C5CFEF6 /* EXDevSupportModule.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		250D83052A38261FE3C029676B33699F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6AC89E9E2C24C4C769BDD0208C01FAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "EXDevSupport-EXDevSupport";
+			target = 07344F71A70826148EC17C85FF5332B9 /* EXDevSupport-EXDevSupport */;
+			targetProxy = 300702A2CE0811F8F672F9D4C604FAD5 /* PBXContainerItemProxy */;
+		};
+		FBA94BE33BE7FDAEFEF1651538BD72E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = React;
+			targetProxy = 94A3916B77C94AF6DF26ABF3D5A42A66 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2BDCA7FB91C248B275BCC8E52C400FD3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6594D2A8A2B7AFA2FB990ED77B617B9C /* EXDevSupport.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EXDevSupport";
+				IBSC_MODULE = EXDevSupport;
+				INFOPLIST_FILE = "Target Support Files/EXDevSupport/ResourceBundle-EXDevSupport-EXDevSupport-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = EXDevSupport;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		2DC89648147DA7316B0AE26E68952F8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6594D2A8A2B7AFA2FB990ED77B617B9C /* EXDevSupport.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/EXDevSupport/EXDevSupport-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = EXDevSupport;
+				PRODUCT_NAME = EXDevSupport;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B6F34710BE3149390C047BA2E4A50FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6594D2A8A2B7AFA2FB990ED77B617B9C /* EXDevSupport.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/EXDevSupport/EXDevSupport-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = EXDevSupport;
+				PRODUCT_NAME = EXDevSupport;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C817D4DA5B7FBD8FF8DD85B5EBB0FC5B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		FEBA9C41C7E8F74F50927CC48BED73E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		FF6B55983BFEC91413E07487CC77DFDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6594D2A8A2B7AFA2FB990ED77B617B9C /* EXDevSupport.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/EXDevSupport";
+				IBSC_MODULE = EXDevSupport;
+				INFOPLIST_FILE = "Target Support Files/EXDevSupport/ResourceBundle-EXDevSupport-EXDevSupport-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = EXDevSupport;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5AF6DC8F0E32967FD47A7345BC14F7A0 /* Build configuration list for PBXNativeTarget "EXDevSupport-EXDevSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF6B55983BFEC91413E07487CC77DFDE /* Debug */,
+				2BDCA7FB91C248B275BCC8E52C400FD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7DC371007B9CAE1A815A793DE4289018 /* Build configuration list for PBXNativeTarget "EXDevSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6F34710BE3149390C047BA2E4A50FE /* Debug */,
+				2DC89648147DA7316B0AE26E68952F8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E94F7B08563BC3A9F46720E02AC158EA /* Build configuration list for PBXProject "EXDevSupport" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C817D4DA5B7FBD8FF8DD85B5EBB0FC5B /* Debug */,
+				FEBA9C41C7E8F74F50927CC48BED73E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 98BCF084D25147C91A144D54EE3CA865 /* Project object */;
+}

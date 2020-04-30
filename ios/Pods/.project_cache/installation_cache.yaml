@@ -7436,6 +7436,39 @@ CACHE_KEYS:
     PROJECT_NAME: EXDevice
     SPECS:
       - EXDevice (2.1.0)
+  EXDevSupport:
+    BUILD_SETTINGS_CHECKSUM:
+      EXDevSupport: dc1d517aff8f5bb7d85eecea6518f3f7
+    CHECKSUM: fa1640b4e74ff883447910330c17355fc4552cb1
+    FILES:
+      - "../../packages/expo-dev-support/ios/EXDevMenuGestureRecognizer.h"
+      - "../../packages/expo-dev-support/ios/EXDevMenuGestureRecognizer.m"
+      - "../../packages/expo-dev-support/ios/EXDevMenuViewController.h"
+      - "../../packages/expo-dev-support/ios/EXDevMenuViewController.m"
+      - "../../packages/expo-dev-support/ios/EXDevMenuWindow.h"
+      - "../../packages/expo-dev-support/ios/EXDevMenuWindow.m"
+      - "../../packages/expo-dev-support/ios/EXDevSupportAppInstance.h"
+      - "../../packages/expo-dev-support/ios/EXDevSupportAppInstance.m"
+      - "../../packages/expo-dev-support/ios/EXDevSupportManager.h"
+      - "../../packages/expo-dev-support/ios/EXDevSupportManager.m"
+      - "../../packages/expo-dev-support/ios/Interceptors/EXDevMenuGestureInterceptor.h"
+      - "../../packages/expo-dev-support/ios/Interceptors/EXDevMenuGestureInterceptor.m"
+      - "../../packages/expo-dev-support/ios/Interceptors/EXDevMenuMotionInterceptor.h"
+      - "../../packages/expo-dev-support/ios/Interceptors/EXDevMenuMotionInterceptor.m"
+      - "../../packages/expo-dev-support/ios/MenuItems/EXDevSupportMenuItem.h"
+      - "../../packages/expo-dev-support/ios/MenuItems/EXDevSupportMenuItem.m"
+      - "../../packages/expo-dev-support/ios/Modules/EXDevSupportInternalModule.h"
+      - "../../packages/expo-dev-support/ios/Modules/EXDevSupportInternalModule.m"
+      - "../../packages/expo-dev-support/ios/Modules/EXDevSupportModule.h"
+      - "../../packages/expo-dev-support/ios/Modules/EXDevSupportModule.m"
+      - "../../packages/expo-dev-support/ios/Protocols/EXDevSupportBridgeProtocol.h"
+      - "../../packages/expo-dev-support/ios/Protocols/EXDevSupportDelegateProtocol.h"
+      - "../../packages/expo-dev-support/ios/Protocols/EXDevSupportMenuExtensionProtocol.h"
+      - "../../packages/expo-dev-support/ios/Resources/EXDevMenuApp.js"
+      - "../../packages/expo-dev-support/README.md"
+    PROJECT_NAME: EXDevSupport
+    SPECS:
+      - EXDevSupport (0.1.0)
   EXDocumentPicker:
     BUILD_SETTINGS_CHECKSUM:
       EXDocumentPicker: 369e974b51717e3ae629d71a88034ad6
@@ -8218,16 +8251,16 @@ CACHE_KEYS:
       - nanopb/encode (0.3.9011)
   Pods-Exponent:
     BUILD_SETTINGS_CHECKSUM:
-      Debug: 234b9984682505865bf98188fdf8ee97
-      Release: 234b9984682505865bf98188fdf8ee97
+      Debug: 5b188bcd56e07af0f636c4f83e228aef
+      Release: 5b188bcd56e07af0f636c4f83e228aef
   Pods-ExponentIntegrationTests:
     BUILD_SETTINGS_CHECKSUM:
-      Debug: 8c94d5ea6c10a3e4056bfdf6596c84fa
-      Release: 8c94d5ea6c10a3e4056bfdf6596c84fa
+      Debug: 3681bda78ebbdaae2047d72063e5d8c7
+      Release: 3681bda78ebbdaae2047d72063e5d8c7
   Pods-Tests:
     BUILD_SETTINGS_CHECKSUM:
-      Debug: 8c94d5ea6c10a3e4056bfdf6596c84fa
-      Release: 8c94d5ea6c10a3e4056bfdf6596c84fa
+      Debug: 3681bda78ebbdaae2047d72063e5d8c7
+      Release: 3681bda78ebbdaae2047d72063e5d8c7
   Protobuf:
     BUILD_SETTINGS_CHECKSUM:
       Protobuf: e9ec876cfd5ece357978b5d515d5282c

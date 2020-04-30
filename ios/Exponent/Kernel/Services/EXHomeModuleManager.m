@@ -1,5 +1,7 @@
 // Copyright 2015-present 650 Industries. All rights reserved.
 
+#import <EXDevSupport/EXDevSupportManager.h>
+
 #import "EXAppLoader.h"
 #import "EXEnvironment.h"
 #import "EXFileDownloader.h"
@@ -8,7 +10,6 @@
 #import "EXKernel.h"
 #import "EXKernelLinkingManager.h"
 #import "EXReactAppManager.h"
-#import "EXDevMenuManager.h"
 
 @implementation EXHomeModuleManager
 

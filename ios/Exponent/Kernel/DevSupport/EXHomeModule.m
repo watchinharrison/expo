@@ -1,14 +1,14 @@
 // Copyright 2015-present 650 Industries. All rights reserved.
 
+#import <EXDevSupport/EXDevSupportManager.h>
+#import <React/RCTEventDispatcher.h>
+
 #import "EXEnvironment.h"
 #import "EXHomeModule.h"
 #import "EXSession.h"
 #import "EXUnversioned.h"
 #import "EXClientReleaseType.h"
 #import "EXKernelDevKeyCommands.h"
-#import "EXDevMenuManager.h"
-
-#import <React/RCTEventDispatcher.h>
 
 @interface EXHomeModule ()
 
@@ -90,7 +90,7 @@
 - (void)requestToCloseDevMenu
 {
   void (^callback)(id) = ^(id arg){
-    [[EXDevMenuManager sharedInstance] closeWithoutAnimation];
+    [[EXDevSupportManager sharedInstance] closeWithoutAnimation];
   };
   [self dispatchJSEvent:@"requestToCloseDevMenu" body:nil onSuccess:callback onFailure:callback];
 }
@@ -170,7 +170,7 @@ RCT_EXPORT_METHOD(reloadAppAsync)
  */
 RCT_EXPORT_METHOD(closeDevMenuAsync)
 {
-  [[EXDevMenuManager sharedInstance] closeWithoutAnimation];
+  [[EXDevSupportManager sharedInstance] closeWithoutAnimation];
 }
 
 /**
@@ -197,7 +197,7 @@ RCT_REMAP_METHOD(getDevMenuSettingsAsync,
                  getDevMenuSettingsAsync:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-  EXDevMenuManager *manager = [EXDevMenuManager sharedInstance];
+  EXDevSupportManager *manager = [EXDevSupportManager sharedInstance];
 
   resolve(@{
     @"motionGestureEnabled": @(manager.interceptMotionGesture),
@@ -211,7 +211,7 @@ RCT_REMAP_METHOD(setDevMenuSettingAsync,
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
-  EXDevMenuManager *manager = [EXDevMenuManager sharedInstance];
+  EXDevSupportManager *manager = [EXDevSupportManager sharedInstance];
 
   if ([key isEqualToString:@"motionGestureEnabled"]) {
     manager.interceptMotionGesture = [value boolValue];

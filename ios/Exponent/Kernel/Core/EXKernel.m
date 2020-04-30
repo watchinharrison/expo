@@ -11,8 +11,8 @@
 #import "EXLinkingManager.h"
 #import "EXVersions.h"
 #import "EXHomeModule.h"
-#import "EXDevMenuManager.h"
 
+#import <EXDevSupport/EXDevSupportManager.h>
 #import <EXConstants/EXConstantsService.h>
 #import <React/RCTBridge+Private.h>
 #import <React/RCTEventDispatcher.h>
@@ -66,7 +66,7 @@ NSString * const kEXReloadActiveAppRequest = @"EXReloadActiveAppRequest";
     _serviceRegistry = [[EXKernelServiceRegistry alloc] init];
 
     // Set the delegate of dev menu manager. Maybe it should be a separate class? Will see later once the delegate protocol gets too big.
-    [[EXDevMenuManager sharedInstance] setDelegate:self];
+    [[EXDevSupportManager sharedInstance] setDelegate:self];
 
     // register for notifications to request reloading the visible app
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -274,7 +274,7 @@ NSString * const kEXReloadActiveAppRequest = @"EXReloadActiveAppRequest";
   
   if (_visibleApp != _appRegistry.homeAppRecord) {
     [EXUtil performSynchronouslyOnMainThread:^{
-      [[EXDevMenuManager sharedInstance] toggle];
+      [[EXDevSupportManager sharedInstance] toggle];
     }];
   } else {
     EXKernelAppRegistry *appRegistry = [EXKernel sharedInstance].appRegistry;
@@ -403,14 +403,9 @@ NSString * const kEXReloadActiveAppRequest = @"EXReloadActiveAppRequest";
   }
 }
 
-#pragma mark - EXDevMenuDelegateProtocol
+#pragma mark - EXDevSupportelegateProtocol
 
-- (RCTBridge *)mainBridgeForDevMenuManager:(EXDevMenuManager *)manager
-{
-  return _appRegistry.homeAppRecord.appManager.reactBridge;
-}
-
-- (nullable RCTBridge *)appBridgeForDevMenuManager:(EXDevMenuManager *)manager
+- (nullable id<EXDevSupportBridgeProtocol>)appBridgeForDevSupportManager:(nonnull EXDevSupportManager *)manager
 {
   if (_visibleApp == _appRegistry.homeAppRecord) {
     return nil;
@@ -418,7 +413,15 @@ NSString * const kEXReloadActiveAppRequest = @"EXReloadActiveAppRequest";
   return _visibleApp.appManager.reactBridge;
 }
 
-- (BOOL)devMenuManager:(EXDevMenuManager *)manager canChangeVisibility:(BOOL)visibility
+- (nullable NSDictionary<NSString *, NSObject *> *)appInfoForDevSupportManager:(nonnull EXDevSupportManager *)manager
+{
+  return @{
+    @"manifestUrl": _visibleApp.appLoader.manifestUrl.absoluteString,
+    @"manifest": RCTNullIfNil(_visibleApp.appLoader.manifest),
+  };
+}
+
+- (BOOL)devMenuManager:(EXDevSupportManager *)manager canChangeVisibility:(BOOL)visibility
 {
   return !visibility || _visibleApp != _appRegistry.homeAppRecord;
 }
