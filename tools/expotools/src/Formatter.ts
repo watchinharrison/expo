@@ -55,8 +55,8 @@ export function formatCommitHash(hash?: string): string {
 export function formatChangelogEntry(entry: string): string {
   return entry
     .replace(/\[(#\d+|@\w+)\]\(([^)]+?)\)/g, blue.bold(link('$1', '$2')))
-    .replace(/([_*]{2})([^\1]*?)\1/g, reset.bold('$2'))
-    .replace(/([_*])([^\1]*?)\1/g, reset.italic('$2'))
+    .replace(/(\W)([_*]{2})([^\2]*?)\2(\W)/g, '$1' + reset.bold('$3') + '$4')
+    .replace(/(\W)([_*])([^\2]*?)\2(\W)/g, '$1' + reset.italic('$3') + '$4')
     .replace(/`([^`]+?)`/g, dim('$1'));
 }
 
@@ -66,4 +66,8 @@ export function formatChangelogEntry(entry: string): string {
 export function formatFileLog(fileLog: GitFileLog): string {
   const uri = `vscode://file/${fileLog.path}`;
   return `${link(fileLog.relativePath, uri)} ${gray(`(${fileLog.status})`)}`;
+}
+
+export function stripNonAsciiChars(str: string): string {
+  return str.replace(/[^\x00-\x7F]/gu, '');
 }

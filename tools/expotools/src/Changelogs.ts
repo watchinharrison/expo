@@ -1,32 +1,40 @@
 import fs from 'fs-extra';
 import semver from 'semver';
+import semverRegex from 'semver-regex';
 
 import * as Markdown from './Markdown';
 
-/**
- * Type of the objects representing single changelog entry.
- */
-export type ChangelogEntry = {
+export type Entry = {
   /**
    * The change note.
    */
   message: string;
   /**
-   * The type of changelog entry.
-   */
-  type: ChangeType;
-  /**
    * The pull request number.
    */
   pullRequests?: number[];
   /**
-   * GitHub's user name of someone who made this change.
+   * GitHub's user names of someones who made this change.
    */
-  authors: string[];
+  authors?: string[];
+};
+
+/**
+ * Type of the objects representing single changelog entry.
+ */
+export type ChangelogEntry = Entry & {
+  /**
+   * The type of changelog entry.
+   */
+  type: ChangeType;
   /**
    * The changelog section which contains this entry.
    */
   version: string;
+  /**
+   * Name of the group, usually name of the package where this change occurred.
+   */
+  groupName: string;
 };
 
 /**
@@ -41,6 +49,7 @@ export type ChangelogChanges = {
  * Enum with changelog sections that are commonly used by us.
  */
 export enum ChangeType {
+  LIBRARY_UPGRADE = '📚 3rd party library updates',
   BREAKING_CHANGES = '🛠 Breaking changes',
   NEW_FEATURES = '🎉 New features',
   BUG_FIXES = '🐛 Bug fixes',
@@ -63,6 +72,11 @@ const VERSION_HEADING_DEPTH = 2;
  * Depth of headings that are being recognized as the type of changes (breaking changes, new features of bugfixes).
  */
 const CHANGE_TYPE_HEADING_DEPTH = 3;
+
+/**
+ * Depth of the list that can be a group.
+ */
+const GROUP_LIST_ITEM_DEPTH = 0;
 
 /**
  * Class representing a changelog.
@@ -88,7 +102,8 @@ export class Changelog {
   async getTokensAsync(): Promise<Markdown.Tokens> {
     if (!this.tokens) {
       try {
-        this.tokens = Markdown.lexify(await fs.readFile(this.filePath, 'utf8'));
+        const markdown = await fs.readFile(this.filePath, 'utf8');
+        this.tokens = Markdown.lexify(markdown);
       } catch (error) {
         this.tokens = [];
       }
@@ -101,11 +116,12 @@ export class Changelog {
    */
   async getVersionsAsync(): Promise<string[]> {
     const tokens = await this.getTokensAsync();
-    const versionTokens = tokens.filter(
-      (token) => token.type === Markdown.TokenType.HEADING && token.depth === VERSION_HEADING_DEPTH
-    ) as Markdown.HeadingToken[];
 
-    return versionTokens.map((token) => token.text);
+    return tokens
+      .filter<Markdown.HeadingToken>((token): token is Markdown.HeadingToken =>
+        isVersionToken(token)
+      )
+      .map((token) => token.text.trim());
   }
 
   /**
@@ -136,12 +152,18 @@ export class Changelog {
 
       if (token.type === Markdown.TokenType.HEADING) {
         if (token.depth === VERSION_HEADING_DEPTH) {
-          if (token.text !== toVersion && (!fromVersion || token.text === fromVersion)) {
+          const parsedVersion = parseVersion(token.text);
+
+          if (!parsedVersion) {
+            // Token is not a valid version token.
+            continue;
+          }
+          if (parsedVersion !== toVersion && (!fromVersion || parsedVersion === fromVersion)) {
             // We've iterated over everything we needed, stop the loop.
             break;
           }
 
-          currentVersion = token.text === UNPUBLISHED_VERSION_NAME ? 'unpublished' : token.text;
+          currentVersion = parsedVersion;
           currentSection = null;
 
           if (!versions[currentVersion]) {
@@ -157,15 +179,10 @@ export class Changelog {
         continue;
       }
 
-      if (currentVersion && currentSection && token.type === Markdown.TokenType.LIST_ITEM_START) {
-        i++;
-        for (; tokens[i].type !== Markdown.TokenType.LIST_ITEM_END; i++) {
-          const token = tokens[i] as Markdown.TextToken;
-
-          if (token.text) {
-            changes.totalCount++;
-            versions[currentVersion][currentSection].push(token.text);
-          }
+      if (currentVersion && currentSection && token.type === Markdown.TokenType.LIST) {
+        for (const item of token.items) {
+          changes.totalCount++;
+          versions[currentVersion][currentSection].push(item.text.trim());
         }
       }
     }
@@ -173,115 +190,116 @@ export class Changelog {
   }
 
   /**
+   * Saves changes that we made in the array of tokens.
+   */
+  async saveAsync(): Promise<void> {
+    // If tokens where not loaded yet, there is nothing to save.
+    if (!this.tokens) {
+      return;
+    }
+
+    // Parse cached tokens and write result to the file.
+    await fs.outputFile(this.filePath, Markdown.render(this.tokens));
+
+    // Reset cached tokens as we just modified the file.
+    // We could use an array with new tokens here, but just for safety, let them be reloaded.
+    this.tokens = null;
+  }
+
+  /**
    * Inserts given entry to changelog.
    */
   async addChangeAsync(entry: ChangelogEntry): Promise<void> {
-    const tokens = [...(await this.getTokensAsync())];
-    const sectionIndex = tokens.findIndex(
-      (token) =>
-        token.type === Markdown.TokenType.HEADING &&
-        token.depth === VERSION_HEADING_DEPTH &&
-        token.text === entry.version
-    );
+    return this.insertEntriesAsync(entry.version, entry.type, entry.groupName, [entry]);
+  }
+
+  async insertEntriesAsync(
+    version: string,
+    type: ChangeType | string,
+    group: string | null,
+    entries: Entry[]
+  ): Promise<void> {
+    if (entries.length === 0) {
+      return;
+    }
+
+    const tokens = await this.getTokensAsync();
+    const sectionIndex = tokens.findIndex((token) => isVersionToken(token, version));
+
     if (sectionIndex === -1) {
-      throw new Error(`Version ${entry.version} not found.`);
+      throw new Error(`Version ${version} not found.`);
     }
 
     for (let i = sectionIndex + 1; i < tokens.length; i++) {
-      const token = tokens[i];
-      if (
-        token.type === Markdown.TokenType.HEADING &&
-        token.depth === CHANGE_TYPE_HEADING_DEPTH &&
-        token.text === entry.type
-      ) {
-        const message =
-          entry.message[entry.message.length - 1] === '.' ? entry.message : `${entry.message}.`;
+      if (isVersionToken(tokens[i])) {
+        // todo: add change type after sectionIndex
+        return;
+      }
+      if (isChangeTypeToken(tokens[i], type)) {
+        const changeTypeToken = tokens[i] as Markdown.HeadingToken;
+        let list: Markdown.ListToken | null = null;
+        let j = i + 1;
 
-        const pullRequestLinks = (entry.pullRequests || [])
-          .map(
-            (pullRequest) => `[#${pullRequest}](https://github.com/expo/expo/pull/${pullRequest})`
-          )
-          .join(', ');
+        for (; j < tokens.length; j++) {
+          const item = tokens[j];
+          if (item.type === Markdown.TokenType.LIST) {
+            list = item;
+            break;
+          }
+          if (item.type === Markdown.TokenType.HEADING && item.depth < changeTypeToken.depth) {
+            break;
+          }
+        }
+        if (!list) {
+          list = Markdown.createListToken();
+          tokens.splice(j, 0, list);
+        }
+        if (group) {
+          let groupListItem = findGroup(list, group);
 
-        const authors = entry.authors
-          .map((author) => `[@${author}](https://github.com/${author})`)
-          .join(', ');
+          if (!groupListItem) {
+            groupListItem = Markdown.createListItemToken(getGroupLabel(group));
+            list.items.push(groupListItem);
+          }
 
-        const pullRequestInformations = `${pullRequestLinks} by ${authors}`.trim();
-        const newTokens: Markdown.Tokens = [
-          {
-            type: Markdown.TokenType.LIST_ITEM_START,
-            loose: false,
-            task: false,
-          },
-          {
-            type: Markdown.TokenType.PARAGRAPH,
-            text: `${message} (${pullRequestInformations})`,
-          },
-          {
-            type: Markdown.TokenType.LIST_ITEM_END,
-          },
-        ];
+          let groupList = groupListItem.tokens.find(
+            (token) => token.type === Markdown.TokenType.LIST
+          ) as Markdown.ListToken;
 
-        if (i + 1 < tokens.length && tokens[i + 1].type === Markdown.TokenType.LIST_START) {
-          tokens.splice(i + 2, 0, ...newTokens);
-        } else {
-          tokens.splice(
-            i + 1,
-            0,
-            {
-              type: Markdown.TokenType.LIST_START,
-              loose: false,
-              ordered: false,
-              start: '',
-            },
-            ...newTokens,
-            {
-              type: Markdown.TokenType.LIST_END,
-            }
-          );
+          if (!groupList) {
+            groupList = Markdown.createListToken(GROUP_LIST_ITEM_DEPTH);
+            groupListItem.tokens.push(groupList);
+          }
+          list = groupList;
         }
 
-        await fs.outputFile(this.filePath, Markdown.parse(tokens));
+        for (const entry of entries) {
+          const listItemLabel = getChangeEntryLabel(entry);
 
-        // Reset cached tokens as we just modified the file.
-        // We could use an array with new tokens here, but just for safety, let them be reloaded.
-        this.tokens = null;
+          if (!list.items.some((item) => item.text.trim() === listItemLabel.trim())) {
+            const listItem = Markdown.createListItemToken(listItemLabel);
 
+            list.depth = listItem.depth = group ? 1 : 0;
+            list.items.push(listItem);
+          }
+        }
         return;
       }
     }
-
-    throw new Error(`Cound't find '${entry.type}' section.`);
+    throw new Error(`Cound't find '${type}' section.`);
   }
 
   /**
    * Renames header of unpublished changes to given version and adds new section with unpublished changes on top.
    */
   async cutOffAsync(version: string): Promise<void> {
-    const tokens = [...(await this.getTokensAsync())];
-    const firstVersionHeadingIndex = tokens.findIndex(isVersionToken);
-    const newSectionTokens: Markdown.Tokens = [
-      {
-        type: Markdown.TokenType.HEADING,
-        depth: VERSION_HEADING_DEPTH,
-        text: UNPUBLISHED_VERSION_NAME,
-      },
-      {
-        type: Markdown.TokenType.HEADING,
-        depth: CHANGE_TYPE_HEADING_DEPTH,
-        text: ChangeType.BREAKING_CHANGES,
-      },
-      {
-        type: Markdown.TokenType.HEADING,
-        depth: CHANGE_TYPE_HEADING_DEPTH,
-        text: ChangeType.NEW_FEATURES,
-      },
-      {
-        type: Markdown.TokenType.HEADING,
-        depth: CHANGE_TYPE_HEADING_DEPTH,
-        text: ChangeType.BUG_FIXES,
-      },
+    const tokens = await this.getTokensAsync();
+    const firstVersionHeadingIndex = tokens.findIndex((token) => isVersionToken(token));
+    const newSectionTokens = [
+      Markdown.createHeadingToken(UNPUBLISHED_VERSION_NAME, VERSION_HEADING_DEPTH),
+      Markdown.createHeadingToken(ChangeType.BREAKING_CHANGES, CHANGE_TYPE_HEADING_DEPTH),
+      Markdown.createHeadingToken(ChangeType.NEW_FEATURES, CHANGE_TYPE_HEADING_DEPTH),
+      Markdown.createHeadingToken(ChangeType.BUG_FIXES, CHANGE_TYPE_HEADING_DEPTH),
     ];
 
     if (firstVersionHeadingIndex !== -1) {
@@ -314,13 +332,13 @@ export class Changelog {
 
     // Insert new tokens before first version header.
     tokens.splice(firstVersionHeadingIndex, 0, ...newSectionTokens);
+  }
 
-    // Parse tokens and write result to the file.
-    await fs.outputFile(this.filePath, Markdown.parse(tokens));
-
-    // Reset cached tokens as we just modified the file.
-    // We could use an array with new tokens here, but just for safety, let them be reloaded.
-    this.tokens = null;
+  render() {
+    if (!this.tokens) {
+      throw new Error('Tokens have not been loaded yet!');
+    }
+    return Markdown.render(this.tokens);
   }
 }
 
@@ -332,19 +350,93 @@ export function loadFrom(path: string): Changelog {
 }
 
 /**
+ * Parses given text and returns the first found semver version, or null if none was found.
+ * If given text equals to unpublished version name then it's returned.
+ */
+function parseVersion(text: string): string | null {
+  if (text === UNPUBLISHED_VERSION_NAME) {
+    return text;
+  }
+  const match = semverRegex().exec(text);
+  return match?.[0] ?? null;
+}
+
+/**
+ * Parses given text and returns group name if found, null otherwise.
+ */
+function parseGroup(text: string): string | null {
+  const match = /\*\*`([@\w\-\/]+)`\*\*/.exec(text);
+  return match?.[1] ?? null;
+}
+
+/**
  * Checks whether given token is interpreted as a token with a version.
  */
-function isVersionToken(token: Markdown.Token): boolean {
+function isVersionToken(token: Markdown.Token, version?: string): token is Markdown.HeadingToken {
   return (
-    token && token.type === Markdown.TokenType.HEADING && token.depth === VERSION_HEADING_DEPTH
+    token.type === Markdown.TokenType.HEADING &&
+    token.depth === VERSION_HEADING_DEPTH &&
+    (!version || token.text === version || parseVersion(token.text) === version)
   );
 }
 
 /**
  * Checks whether given token is interpreted as a token with a change type.
  */
-function isChangeTypeToken(token: Markdown.Token): boolean {
+function isChangeTypeToken(
+  token: Markdown.Token,
+  changeType?: ChangeType | string
+): token is Markdown.HeadingToken {
   return (
-    token && token.type === Markdown.TokenType.HEADING && token.depth === CHANGE_TYPE_HEADING_DEPTH
+    token.type === Markdown.TokenType.HEADING &&
+    token.depth === CHANGE_TYPE_HEADING_DEPTH &&
+    (!changeType || token.text === changeType)
   );
+}
+
+/**
+ * Checks whether given token is interpreted as a list group.
+ */
+function isGroupToken(token: Markdown.Token, groupName: string): token is Markdown.ListItemToken {
+  if (token.type === Markdown.TokenType.LIST_ITEM && token.depth === GROUP_LIST_ITEM_DEPTH) {
+    const firstToken = token.tokens[0];
+    return firstToken.type === Markdown.TokenType.TEXT && parseGroup(firstToken.text) === groupName;
+  }
+  return false;
+}
+
+/**
+ * Finds list item that makes a group with given name.
+ */
+function findGroup(token: Markdown.ListToken, groupName: string): Markdown.ListItemToken | null {
+  return token.items.find((item) => isGroupToken(item, groupName)) ?? null;
+}
+
+/**
+ * Stringifies change entry object.
+ */
+function getChangeEntryLabel(entry: Entry): string {
+  const pullRequests = entry.pullRequests || [];
+  const authors = entry.authors || [];
+
+  if (pullRequests.length + authors.length > 0) {
+    const pullRequestsStr = pullRequests
+      .map((pullRequest) => `[#${pullRequest}](https://github.com/expo/expo/pull/${pullRequest})`)
+      .join(', ');
+
+    const authorsStr = authors
+      .map((author) => `[@${author}](https://github.com/${author})`)
+      .join(', ');
+
+    const pullRequestInformations = `${pullRequestsStr} by ${authorsStr}`.trim();
+    return `${entry.message} (${pullRequestInformations})`;
+  }
+  return entry.message;
+}
+
+/**
+ * Converts plain group name to its markdown representation.
+ */
+function getGroupLabel(groupName: string): string {
+  return `**\`${groupName}\`**`;
 }
