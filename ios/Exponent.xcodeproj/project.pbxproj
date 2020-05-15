@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		0726F0592007E438004992E7 /* EXKernelAppRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 0726F0582007E438004992E7 /* EXKernelAppRecord.m */; };
 		0726F05C2007E446004992E7 /* EXKernelAppRegistry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0726F05B2007E446004992E7 /* EXKernelAppRegistry.m */; };
@@ -336,6 +335,7 @@
 		F21159F62C244F3BA8CDE98B /* RCTConvert+UIPageViewControllerTransitionStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4670FD34142C4706BEA4FD1E /* RCTConvert+UIPageViewControllerTransitionStyle.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		F77DDB931E04AC1100624CA2 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77DDB921E04AC1100624CA2 /* SafariServices.framework */; };
 		FA526593B78C87A7E1C34561 /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D8BAB8D6102FB06BE5BE10B /* libPods-Tests.a */; };
+		CFF9313BF12A44B7A7D192CB /* RNCAsyncStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 93168C2467C5479A86B2E629 /* RNCAsyncStorage.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1026,6 +1026,9 @@
 		F1D6AF6524472BA900AC1C74 /* EXDevMenuDelegateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EXDevMenuDelegateProtocol.h; sourceTree = "<group>"; };
 		F77DDB921E04AC1100624CA2 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		FA872B0AA66044B4B8C574F0 /* RNSScreenStack.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; path = RNSScreenStack.h; sourceTree = "<group>"; };
+		6D83AAA6410240F9B89A53AF /* RNCAsyncStorage.h */ = {isa = PBXFileReference; name = "RNCAsyncStorage.h"; path = "RNCAsyncStorage.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		93168C2467C5479A86B2E629 /* RNCAsyncStorage.m */ = {isa = PBXFileReference; name = "RNCAsyncStorage.m"; path = "RNCAsyncStorage.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		5BD90482C75044089F6C6749 /* RNCAsyncStorageDelegate.h */ = {isa = PBXFileReference; name = "RNCAsyncStorageDelegate.h"; path = "RNCAsyncStorageDelegate.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1599,6 +1602,7 @@
 				78D82526204E8F9C00CBD9D9 /* EXApiV2Client.m */,
 				78D82528204F826700CBD9D9 /* EXApiV2Result.h */,
 				78D82529204F826700CBD9D9 /* EXApiV2Result.m */,
+				D6485690975F4B1AAB2C1BA5 /* AsyncStorage */,
 			);
 			name = Api;
 			path = Exponent/Kernel/Api;
@@ -2313,6 +2317,17 @@
 			path = "Build-Phases";
 			sourceTree = "<group>";
 		};
+		D6485690975F4B1AAB2C1BA5 /* AsyncStorage */ = {
+			isa = PBXGroup;
+			children = (
+				6D83AAA6410240F9B89A53AF /* RNCAsyncStorage.h */,
+				93168C2467C5479A86B2E629 /* RNCAsyncStorage.m */,
+				5BD90482C75044089F6C6749 /* RNCAsyncStorageDelegate.h */,
+			);
+			name = AsyncStorage;
+			path = AsyncStorage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2917,6 +2932,7 @@
 				66827DD222C54196B1FDA739 /* RNSScreenStackHeaderConfig.m in Sources */,
 				B75F881E8F9641B785F76CB0 /* RNSVGForeignObject.m in Sources */,
 				C1A9EE2CB1DF4BD8936C3C7F /* RNSVGForeignObjectManager.m in Sources */,
+				CFF9313BF12A44B7A7D192CB /* RNCAsyncStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
