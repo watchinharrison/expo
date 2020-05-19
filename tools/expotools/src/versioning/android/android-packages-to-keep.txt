@@ -9,6 +9,8 @@ expo.modules.notifications.notifications.interfaces.NotificationListener
 expo.modules.notifications.notifications.interfaces.NotificationManager
 expo.modules.notifications.notifications.interfaces.NotificationTrigger
 expo.modules.notifications.notifications.interfaces.SchedulableNotificationTrigger
+expo.modules.notifications.notifications.NotificationManager
 expo.modules.notifications.notifications.service
 expo.modules.notifications.FirebaseListenerService
 expo.modules.notifications.tokens.interfaces
+expo.modules.notifications.tokens.PushTokenManager
