@@ -17,6 +17,14 @@ cp -r $2/src/main/AndroidManifest.xml $UNIMODULE_MANIFEST_PATH
 
 find $VERSIONED_ABI_PATH/src/main/java/$ABI_VERSION -iname 'flutter' -type d -print0 | xargs -0 rm -r
 
+# Remove packages-to-keep
+
+while read PACKAGE
+do
+  PACKAGE_DIR=${PACKAGE//\./\/}
+  find $VERSIONED_ABI_PATH/src/main/java/$ABI_VERSION/$PACKAGE_DIR* \( -iname '*.java' -or -iname '*.kt' \) -type f -print0 | xargs -0 rm -rf
+done < $TOOLS_DIR/android-packages-to-keep.txt
+
 while read PACKAGE
 do
   find $VERSIONED_ABI_PATH/src/main/java/$ABI_VERSION \( -iname '*.java' -or -iname '*.kt' \) -type f -print0 | xargs -0 sed -i '' "s/\([, ^\(<]\)$PACKAGE/\1temporarydonotversion.$PACKAGE/g"
