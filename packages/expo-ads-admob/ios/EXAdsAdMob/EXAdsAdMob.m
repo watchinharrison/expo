@@ -2,6 +2,8 @@
 
 #import <EXAdsAdMob/EXAdsAdMob.h>
 #import <GoogleMobileAds/GoogleMobileAds.h>
+#import <AppTrackingTransparency/AppTrackingTransparency.h>
+#import <AdSupport/AdSupport.h>
 
 @implementation EXAdsAdMob
 
@@ -22,6 +24,23 @@ UM_EXPORT_METHOD_AS(setTestDeviceIDAsync,
   }
   GADMobileAds.sharedInstance.requestConfiguration.testDeviceIdentifiers = testDeviceIdentifiers;
   resolve(nil);
+}
+
+UM_EXPORT_METHOD_AS(requestIDFA,
+                    resolver:(UMPromiseResolveBlock)resolve
+                    rejecter:(UMPromiseRejectBlock)reject)
+{
+  if (@available(iOS 14, *)) {
+    [ATTrackingManager requestTrackingAuthorizationWithCompletionHandler:^(ATTrackingManagerAuthorizationStatus status) {
+      if (status == ATTrackingManager.AuthorizationStatus.authorized) {
+        resolve(status);
+      } else {
+        reject(status);
+      }
+    }]
+  } else {
+      reject(nil);
+  }
 }
 
 @end

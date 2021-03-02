@@ -17,3 +17,10 @@ export async function setTestDeviceIDAsync(testDeviceID: string | null): Promise
   }
   await ExpoAdsAdMob.setTestDeviceIDAsync(testDeviceID || '');
 }
+
+export async function requestIDFA(): Promise<void> {
+  if (!ExpoAdsAdMob.requestIDFA) {
+    throw new UnavailabilityError('expo-ads-admob', 'requestIDFA');
+  }
+  await ExpoAdsAdMob.requestIDFA();
+}
